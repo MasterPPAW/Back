@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Faculta\\PPAW\\FitnessPlatformPPAW\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F2EA093C-0DFB-4C51-B0FD-D99A46CCDB90}|FitnessMVC\\FitnessMVC.csproj|d:\\faculta\\ppaw\\fitnessplatformppaw\\fitnessmvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F2EA093C-0DFB-4C51-B0FD-D99A46CCDB90}|FitnessMVC\\FitnessMVC.csproj|solutionrelative:fitnessmvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Faculta\\PPAW\\FitnessPlatformPPAW\\FitnessMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "FitnessMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Faculta\\PPAW\\FitnessPlatformPPAW\\FitnessMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "FitnessMVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T11:10:27.048Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
