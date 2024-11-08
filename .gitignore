@@ -1,2 +1,4 @@
 .vs/
 /FitnessAPI/appsettings.json
+/FitnessMVC/appsettings.json
+/Repository/app.config
