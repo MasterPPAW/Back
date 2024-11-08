@@ -91,7 +91,6 @@ namespace FitnessMVC.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
@@ -109,8 +108,7 @@ namespace FitnessMVC.Controllers
                     {
                         throw;
                     }
-                }
-                
+                } 
             }
             var users = await _usersAccessor.GetUsers();
             ViewData["UserId"] = new SelectList(users, "UserId", "Name", subscriptionDTO.UserId);
