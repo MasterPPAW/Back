@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NivelAccesDate", "NivelAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessMVC", "FitnessMVC\FitnessMVC.csproj", "{F2EA093C-0DFB-4C51-B0FD-D99A46CCDB90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessAPI", "FitnessAPI\FitnessAPI.csproj", "{9E73BFCD-459D-4393-B336-ECA61C3FD333}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NivelService", "NivelService\NivelService.csproj", "{44C7455C-298D-4E59-AC1C-2B7D20932DBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{F2EA093C-0DFB-4C51-B0FD-D99A46CCDB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2EA093C-0DFB-4C51-B0FD-D99A46CCDB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2EA093C-0DFB-4C51-B0FD-D99A46CCDB90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E73BFCD-459D-4393-B336-ECA61C3FD333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E73BFCD-459D-4393-B336-ECA61C3FD333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E73BFCD-459D-4393-B336-ECA61C3FD333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E73BFCD-459D-4393-B336-ECA61C3FD333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44C7455C-298D-4E59-AC1C-2B7D20932DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44C7455C-298D-4E59-AC1C-2B7D20932DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44C7455C-298D-4E59-AC1C-2B7D20932DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44C7455C-298D-4E59-AC1C-2B7D20932DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

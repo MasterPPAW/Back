@@ -337,3 +337,4 @@ D:\Faculta\PPAW\FitnessPlatformPPAW\NivelAccesDate\obj\Debug\net8.0\refint\Nivel
 D:\Faculta\PPAW\FitnessPlatformPPAW\NivelAccesDate\obj\Debug\net8.0\NivelAccesDate.pdb
 D:\Faculta\PPAW\FitnessPlatformPPAW\NivelAccesDate\obj\Debug\net8.0\NivelAccesDate.genruntimeconfig.cache
 D:\Faculta\PPAW\FitnessPlatformPPAW\NivelAccesDate\obj\Debug\net8.0\ref\NivelAccesDate.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\NivelAccesDate\obj\Debug\net8.0\NivelAccesDate.sourcelink.json
