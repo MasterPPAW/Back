@@ -47,9 +47,9 @@ namespace NivelService
                 throw new ArgumentException("Wrong Id given.");
             }
 
-            var toEntity = _mapper.Map<User>(userDTO);
+            _mapper.Map(userDTO, foundUser);
 
-            await _usersAccessor.UpdateUser(toEntity);
+            await _usersAccessor.UpdateUser(foundUser);
 
             return await GetUser(id);
         }
