@@ -12,6 +12,8 @@ namespace FitnessAPI.Controllers
     [ApiController]
     public class UsersController(IUsersService usersService) : ControllerBase
     {
+        private const string PostBaseSuccessMessage = "Successfully registered";
+
         // GET: api/<UsersController>
         [HttpGet]
         public async Task<List<UserDTO>> Get()
@@ -28,20 +30,27 @@ namespace FitnessAPI.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] UserDTO userDTO)
         {
+            await usersService.CreateUser(userDTO);
+
+            string postMessage = PostBaseSuccessMessage + " " + userDTO.Name;
+            return CreatedAtAction(nameof(Get), new { id = userDTO.UserId }, postMessage);
         }
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put([FromBody] UserDTO userDTO, int id)
         {
+            return Ok(await usersService.UpdateUser(userDTO, id));
         }
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            await usersService.DeleteUser(id);
+            return NoContent();
         }
     }
 }

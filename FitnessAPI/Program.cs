@@ -14,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<FitnessDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("fitnessDB"))
            .UseLazyLoadingProxies());
+           /*.EnableSensitiveDataLogging()
+           .LogTo(Console.WriteLine, LogLevel.Warning));*/
 
 builder.Services.AddScoped<IUsersService, UsersService>();
 

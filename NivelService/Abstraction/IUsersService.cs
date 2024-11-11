@@ -16,7 +16,7 @@ namespace NivelService.Abstraction
         Task<List<UserDTO>> GetUsers();
         Task<UserDTO> GetUser(int id);
         Task CreateUser(UserDTO userDTO);
-        Task UpdateUser(UserDTO userDTO);
+        Task<UserDTO> UpdateUser(UserDTO userDTO, int id);
         Task DeleteUser(int id);
         Task<bool> UserExists(int id);
     }

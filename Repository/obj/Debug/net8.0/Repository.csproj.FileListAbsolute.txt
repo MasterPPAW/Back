@@ -16,3 +16,4 @@ D:\Faculta\PPAW\FitnessPlatformPPAW\Repository\obj\Debug\net8.0\refint\Repositor
 D:\Faculta\PPAW\FitnessPlatformPPAW\Repository\obj\Debug\net8.0\Repository.pdb
 D:\Faculta\PPAW\FitnessPlatformPPAW\Repository\obj\Debug\net8.0\Repository.genruntimeconfig.cache
 D:\Faculta\PPAW\FitnessPlatformPPAW\Repository\obj\Debug\net8.0\ref\Repository.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\Repository\obj\Debug\net8.0\Repository.sourcelink.json

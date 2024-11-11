@@ -39,11 +39,19 @@ namespace NivelService
             await _usersAccessor.CreateUser(toEntity);
         }
 
-        public async Task UpdateUser(UserDTO userDTO)
+        public async Task<UserDTO> UpdateUser(UserDTO userDTO, int id)
         {
+            var foundUser = await _usersAccessor.GetUser(id);
+            if (foundUser == null)
+            {
+                throw new ArgumentException("Wrong Id given.");
+            }
+
             var toEntity = _mapper.Map<User>(userDTO);
 
             await _usersAccessor.UpdateUser(toEntity);
+
+            return await GetUser(id);
         }
 
         public async Task DeleteUser(int id)
