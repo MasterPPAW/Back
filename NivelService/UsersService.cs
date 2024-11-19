@@ -34,6 +34,19 @@ namespace NivelService
 
         public async Task CreateUser(UserDTO userDTO)
         {
+            /*if (userDTO == null)
+            {
+                throw new ArgumentNullException(nameof(userDTO), "User data is required.");
+            }
+            if (string.IsNullOrWhiteSpace(userDTO.Email))
+            {
+                throw new ArgumentException("Email is required.", nameof(userDTO.Email));
+            }
+            if (string.IsNullOrWhiteSpace(userDTO.Name))
+            {
+                throw new ArgumentException("Name is required.", nameof(userDTO.Name));
+            }*/
+
             var toEntity = _mapper.Map<User>(userDTO);
 
             await _usersAccessor.CreateUser(toEntity);
