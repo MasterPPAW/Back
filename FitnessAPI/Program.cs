@@ -18,16 +18,31 @@ builder.Services.AddDbContext<FitnessDBContext>(options =>
            .LogTo(Console.WriteLine, LogLevel.Warning));*/
 
 builder.Services.AddScoped<IUsersService, UsersService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddScoped<IUsersAccessor, UsersAccessor>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularDev",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials();
+        });
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors("AllowAngularDev");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

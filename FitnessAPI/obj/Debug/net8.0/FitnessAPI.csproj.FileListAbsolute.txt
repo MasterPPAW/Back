@@ -62,3 +62,17 @@ D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Repository.pdb
 D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Repository.dll.config
 D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\NivelAccesDate.pdb
 D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\NivelAccesDate.dll.config
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.AspNet.Identity.Core.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

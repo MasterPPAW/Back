@@ -25,6 +25,11 @@ namespace NivelAccesDate.Accessors
             return await _context.Users.ToListAsync();
         }
 
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(m => m.Email == email);
+        }
+
         public async Task<User> GetUser(int id)
         {
             return await _context.Users.FirstOrDefaultAsync(m => m.UserId == id);
