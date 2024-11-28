@@ -29,7 +29,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularDev",
         policy =>
         {
-            policy.WithOrigins("https://fitnessppaw.netlify.app", "http://localhost:4200/")
+            policy.WithOrigins("https://fitnessppaw.netlify.app", "http://localhost:4200")
                   .AllowAnyMethod()
                   .AllowAnyHeader()
                   .AllowCredentials();

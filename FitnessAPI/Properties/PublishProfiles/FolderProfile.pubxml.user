@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Faculta\PPAW\Publish</_PublishTargetUrl>
+    <History>True|2024-11-28T13:45:23.2979815Z||;False|2024-11-28T15:42:58.8062389+02:00||;True|2024-11-28T15:33:49.4819130+02:00||;True|2024-11-28T15:09:51.4539696+02:00||;True|2024-11-28T14:57:34.2902936+02:00||;True|2024-11-28T14:53:24.7084012+02:00||;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="fitnessDB">
+      <Value>Host=localhost%3b Database=fitnessDBCodeFirst%3b Username=postgres%3b Password=studentppaw%3b Port=5432</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
