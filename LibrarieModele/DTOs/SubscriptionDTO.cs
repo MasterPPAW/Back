@@ -5,9 +5,9 @@ namespace LibrarieModele.DTOs
     public class SubscriptionDTO
     {
         public int SubscriptionId { get; set; }
-
-        [Display(Name = "User")]
         public int UserId { get; set; }
+
+        [EnumDataType(typeof(FitnessLevel), ErrorMessage = "Invalid Fitness Level")]
         public string SubscriptionType { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

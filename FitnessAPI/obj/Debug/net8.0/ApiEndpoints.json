@@ -2,7 +2,7 @@
   {
     "ContainingType": "FitnessAPI.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "login",
+    "RelativePath": "Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +18,7 @@
   {
     "ContainingType": "FitnessAPI.Controllers.AuthController",
     "Method": "Logout",
-    "RelativePath": "logout",
+    "RelativePath": "Auth/logout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -28,7 +28,7 @@
   {
     "ContainingType": "FitnessAPI.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "register",
+    "RelativePath": "Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -36,6 +36,204 @@
       {
         "Name": "userDTO",
         "Type": "LibrarieModele.DTOs.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.ExercisesController",
+    "Method": "Get",
+    "RelativePath": "Exercises",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.ExerciseDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.ExercisesController",
+    "Method": "Post",
+    "RelativePath": "Exercises",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "exerciseDTO",
+        "Type": "LibrarieModele.DTOs.ExerciseDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.ExercisesController",
+    "Method": "GetById",
+    "RelativePath": "Exercises/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LibrarieModele.DTOs.ExerciseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.ExercisesController",
+    "Method": "Put",
+    "RelativePath": "Exercises/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "exerciseDTO",
+        "Type": "LibrarieModele.DTOs.ExerciseDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.ExercisesController",
+    "Method": "Delete",
+    "RelativePath": "Exercises/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.SubscriptionsController",
+    "Method": "Get",
+    "RelativePath": "Subscriptions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.SubscriptionDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.SubscriptionsController",
+    "Method": "Post",
+    "RelativePath": "Subscriptions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subscriptionDTO",
+        "Type": "LibrarieModele.DTOs.SubscriptionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.SubscriptionsController",
+    "Method": "GetById",
+    "RelativePath": "Subscriptions/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LibrarieModele.DTOs.SubscriptionDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.SubscriptionsController",
+    "Method": "Put",
+    "RelativePath": "Subscriptions/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subscriptionDTO",
+        "Type": "LibrarieModele.DTOs.SubscriptionDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.SubscriptionsController",
+    "Method": "Delete",
+    "RelativePath": "Subscriptions/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -128,6 +326,105 @@
     "ContainingType": "FitnessAPI.Controllers.UsersController",
     "Method": "Delete",
     "RelativePath": "Users/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlansController",
+    "Method": "Get",
+    "RelativePath": "WorkoutPlans",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.WorkoutPlanDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlansController",
+    "Method": "Post",
+    "RelativePath": "WorkoutPlans",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workoutPlanDTO",
+        "Type": "LibrarieModele.DTOs.WorkoutPlanDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlansController",
+    "Method": "GetById",
+    "RelativePath": "WorkoutPlans/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LibrarieModele.DTOs.WorkoutPlanDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlansController",
+    "Method": "Put",
+    "RelativePath": "WorkoutPlans/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workoutPlanDTO",
+        "Type": "LibrarieModele.DTOs.WorkoutPlanDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlansController",
+    "Method": "Delete",
+    "RelativePath": "WorkoutPlans/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

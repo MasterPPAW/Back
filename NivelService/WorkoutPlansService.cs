@@ -37,7 +37,7 @@ namespace NivelService
             await _workoutPlansAccessor.CreateWorkoutPlan(toEntity);
         }
 
-        public async Task<WorkoutPlanDTO> UpdateUser(WorkoutPlanDTO workoutPlanDTO, int id)
+        public async Task<WorkoutPlanDTO> UpdateWorkoutPlan(WorkoutPlanDTO workoutPlanDTO, int id)
         {
             var foundWorkoutPlan = await _workoutPlansAccessor.GetWorkoutPlan(id);
             if (foundWorkoutPlan == null)

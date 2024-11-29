@@ -9,17 +9,19 @@ using NivelService.Abstraction;
 
 namespace FitnessAPI.Controllers
 {
-    public class AuthController(IAuthService _authService) : Controller
+    [Route("[controller]")]
+    [ApiController]
+    public class AuthController(IAuthService authService) : ControllerBase
     {
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] UserDTO userDTO)
         {
             // Validate input (e.g., check if email is unique, password meets requirements)
-            var existingUser = await _authService.GetUserByEmail(userDTO.Email);
+            var existingUser = await authService.GetUserByEmail(userDTO.Email);
             if (existingUser != null)
                 return BadRequest("Email is already in use.");
 
-            var response = await _authService.Register(userDTO);
+            var response = await authService.Register(userDTO);
 
             return Ok(response);
         }
@@ -27,15 +29,15 @@ namespace FitnessAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var user = await _authService.GetUserByEmail(request.Email);
+            var user = await authService.GetUserByEmail(request.Email);
             if (user == null)
                 return Unauthorized("Invalid credentials.");
 
-            var isPasswordValid = _authService.VerifyPassword(user.Password, request.Password);
+            var isPasswordValid = authService.VerifyPassword(user.Password, request.Password);
             if (!isPasswordValid)
                 return Unauthorized("Invalid credentials.");
 
-            var response = await _authService.Login(user);
+            var response = await authService.Login(user);
 
             return Ok(response);
         }

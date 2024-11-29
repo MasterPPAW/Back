@@ -11,10 +11,21 @@ namespace NivelAccesDate.Configs
         {
             CreateMap<User, UserDTO>();
             CreateMap<UserDTO, User>();
+
             CreateMap<Subscription, SubscriptionDTO>();
             CreateMap<SubscriptionDTO, Subscription>();
+
             CreateMap<WorkoutPlan, WorkoutPlanDTO>();
             CreateMap<WorkoutPlanDTO, WorkoutPlan>();
+
+            CreateMap<Exercise, ExerciseDTO>();
+            CreateMap<ExerciseDTO, Exercise>();
+
+            CreateMap<Payment, PaymentDTO>();
+            CreateMap<PaymentDTO, Payment>();
+
+            CreateMap<WorkoutPlanExercise, WorkoutPlanExerciseDTO>();
+            CreateMap<WorkoutPlanExerciseDTO, WorkoutPlanExercise>();
         }
     }
 }

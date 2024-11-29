@@ -18,9 +18,18 @@ builder.Services.AddDbContext<FitnessDBContext>(options =>
            .LogTo(Console.WriteLine, LogLevel.Warning));*/
 
 builder.Services.AddScoped<IUsersService, UsersService>();
+builder.Services.AddScoped<ISubscriptionsService, SubscriptionsService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IWorkoutPlansService, WorkoutPlansService>();
+builder.Services.AddScoped<IExercisesService, ExercisesService>();
+builder.Services.AddScoped<IWorkoutPlanExercisesService, WorkoutPlanExercisesService>();
 
 builder.Services.AddScoped<IUsersAccessor, UsersAccessor>();
+builder.Services.AddScoped<ISubscriptionsAccessor, SubscriptionsAccessor>();
+builder.Services.AddScoped<IWorkoutPlansAccessor, WorkoutPlansAccessor>();
+builder.Services.AddScoped<IExercisesAccessor, ExercisesAccessor>();
+builder.Services.AddScoped<IPaymentsAccessor, PaymentsAccessor>();
+builder.Services.AddScoped<IWorkoutPlanExercisesAccessor, WorkoutPlanExercisesAccessor>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 

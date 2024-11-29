@@ -1,65 +1,54 @@
-﻿using AutoMapper;
-
-using LibrarieModele;
-using LibrarieModele.DTOs;
+﻿using LibrarieModele;
 using Microsoft.EntityFrameworkCore;
+
+using NivelAccesDate.Accessors.Abstraction;
 
 using Repository_CodeFirst;
 
 namespace NivelAccesDate.Accessors
 {
-    public class SubscriptionsAccessor
+    public class SubscriptionsAccessor : ISubscriptionsAccessor
     {
         private readonly FitnessDBContext _context;
-        private readonly IMapper _mapper;
-        public SubscriptionsAccessor(FitnessDBContext context, IMapper mapper)
+
+        public SubscriptionsAccessor(FitnessDBContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
 
-        public async Task<List<SubscriptionDTO>> GetSubscriptions()
+        public async Task<List<Subscription>> GetSubscriptions()
         {
-            var subs = await _context.Subscriptions.ToListAsync();
-
-            return subs.Select(ent => _mapper.Map<SubscriptionDTO>(ent)).ToList();
+            return await _context.Subscriptions.ToListAsync();
         }
 
-        public async Task<SubscriptionDTO> GetSubscription(int id)
+        public async Task<Subscription> GetSubscription(int id)
         {
-            var sub = await _context.Subscriptions.FirstOrDefaultAsync(m => m.SubscriptionId == id);
-
-            return _mapper.Map<SubscriptionDTO>(sub);
+            return await _context.Subscriptions.FirstOrDefaultAsync(m => m.SubscriptionId == id);
         }
 
-        public async Task CreateSubscription(SubscriptionDTO subscriptionDTO)
+        public async Task CreateSubscription(Subscription subscription)
         {
-            var toEntity = _mapper.Map<Subscription>(subscriptionDTO);
-
-            await _context.Subscriptions.AddAsync(toEntity);
+            await _context.Subscriptions.AddAsync(subscription);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateSubscription(SubscriptionDTO subscriptionDTO)
+        public async Task UpdateSubscription(Subscription subscription)
         {
-            var toEntity = _mapper.Map<Subscription>(subscriptionDTO);
-
-            _context.Subscriptions.Update(toEntity);
+            _context.Subscriptions.Update(subscription);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteSubscription(int id)
         {
-            var sub = await _context.Subscriptions.FirstOrDefaultAsync(m => m.SubscriptionId == id);
-            if (sub != null)
+            var subscription = await _context.Subscriptions.FirstOrDefaultAsync(m => m.SubscriptionId == id);
+            if (subscription != null)
             {
-                _context.Subscriptions.Remove(sub);
+                _context.Subscriptions.Remove(subscription);
             }
 
             await _context.SaveChangesAsync();
         }
-
-        public async Task<bool> SubscriptionExistsAsync(int id)
+        public async Task<bool> SubscriptionExists(int id)
         {
             return await _context.Subscriptions.AnyAsync(u => u.SubscriptionId == id);
         }
