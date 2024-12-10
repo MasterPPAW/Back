@@ -438,9 +438,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FitnessAPI.Controllers.WorkourPlanExercisesController",
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
     "Method": "Get",
-    "RelativePath": "WorkourPlanExercises",
+    "RelativePath": "WorkoutPlanExercises",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -458,9 +458,9 @@
     ]
   },
   {
-    "ContainingType": "FitnessAPI.Controllers.WorkourPlanExercisesController",
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
     "Method": "Post",
-    "RelativePath": "WorkourPlanExercises",
+    "RelativePath": "WorkoutPlanExercises",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -474,45 +474,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FitnessAPI.Controllers.WorkourPlanExercisesController",
-    "Method": "GetById",
-    "RelativePath": "WorkourPlanExercises/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "planId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "exerciseId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "id",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "LibrarieModele.DTOs.WorkoutPlanExerciseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FitnessAPI.Controllers.WorkourPlanExercisesController",
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
     "Method": "Put",
-    "RelativePath": "WorkourPlanExercises/{id}",
+    "RelativePath": "WorkoutPlanExercises/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -541,9 +505,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FitnessAPI.Controllers.WorkourPlanExercisesController",
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
     "Method": "Delete",
-    "RelativePath": "WorkourPlanExercises/{id}",
+    "RelativePath": "WorkoutPlanExercises/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -565,6 +529,89 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
+    "Method": "GetById",
+    "RelativePath": "WorkoutPlanExercises/{planId}/{exerciseId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "planId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "exerciseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LibrarieModele.DTOs.WorkoutPlanExerciseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
+    "Method": "GetWorkoutPlansByExerciseId",
+    "RelativePath": "WorkoutPlanExercises/exercise/{exerciseId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "exerciseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.WorkoutPlanDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
+    "Method": "GetExercisesByPlanId",
+    "RelativePath": "WorkoutPlanExercises/plan/{planId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "planId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.ExerciseDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "FitnessAPI.Controllers.WorkoutPlansController",

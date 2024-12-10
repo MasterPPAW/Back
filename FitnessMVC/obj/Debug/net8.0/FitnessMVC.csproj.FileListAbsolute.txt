@@ -733,3 +733,4 @@ D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessMVC\obj\Debug\net8.0\scopedcss\projec
 D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessMVC\obj\Debug\net8.0\FitnessMVC.csproj.Up2Date
 D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessMVC\obj\Debug\net8.0\FitnessMVC.genruntimeconfig.cache
 D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessMVC\obj\Debug\net8.0\ref\FitnessMVC.dll
+D:\Faculta\PPAW\FitnessPlatformPPAW\FitnessMVC\obj\Debug\net8.0\FitnessMVC.sourcelink.json

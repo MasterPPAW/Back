@@ -24,20 +24,17 @@ namespace LibrarieModele
 
         [Required]
         [Column(TypeName = "date")]
-        public DateTime RegistrationDate { get; set; } = DateTime.Now; 
+        public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
         [Required]
         [Column(TypeName = "varchar(15)")]
-        public string FitnessLevel { get; set; } = "beginner"; 
+        public string FitnessLevel { get; set; } = "beginner";
 
         [Column(TypeName = "date")]
         public DateTime? TrialExpiration { get; set; }
 
-        [MaxLength(15)]
-        public string? NewProperty1 { get; set; }
-
-        [MaxLength(25)]
-        public string? NewProperty2 { get; set; }
+        [Required]
+        public bool IsDeleted { get; set; } = false;
 
         public virtual ICollection<Subscription> Subscriptions { get; set; } = new List<Subscription>();
         public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();

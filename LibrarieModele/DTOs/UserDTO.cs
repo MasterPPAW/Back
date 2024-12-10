@@ -13,8 +13,7 @@ namespace LibrarieModele.DTOs
         [EnumDataType(typeof(FitnessLevel), ErrorMessage = "Invalid Fitness Level")]
         public string FitnessLevel { get; set; }
         public DateTime? TrialExpiration { get; set; }
-        public string? NewProperty1 { get; set; }
-        public string? NewProperty2 { get; set; }
+        public bool IsDeleted { get; set; }
     }
 
     public enum FitnessLevel

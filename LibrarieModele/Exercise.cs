@@ -34,6 +34,9 @@ namespace LibrarieModele
         [Required]
         public int Duration { get; set; }
 
+        [Required]
+        public bool IsDeleted { get; set; } = false;
+
         public virtual ICollection<WorkoutPlanExercise> WorkoutPlanExercises { get; set; } = new List<WorkoutPlanExercise>();
     }
 }

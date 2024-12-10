@@ -2,3 +2,7 @@
 /FitnessAPI/appsettings.json
 /FitnessMVC/appsettings.json
 /Repository/app.config
+/FitnessAPI/bin/
+/FitnessMVC/bin/
+/FitnessAPI/obj/
+/FitnessMVC/obj/

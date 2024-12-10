@@ -22,7 +22,7 @@ namespace NivelAccesDate.Accessors
 
         public async Task<List<User>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Where(m => m.IsDeleted == false).ToListAsync();
         }
 
         public async Task<User> GetUserByEmail(string email)

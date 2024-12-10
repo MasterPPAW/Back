@@ -8,7 +8,7 @@ namespace FitnessAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class WorkourPlanExercisesController(IWorkoutPlanExercisesService workoutPlanExercisesService) : ControllerBase
+    public class WorkoutPlanExercisesController(IWorkoutPlanExercisesService workoutPlanExercisesService) : ControllerBase
     {
         private const string PostBaseSuccessMessage = "Successfully registered";
 
@@ -18,10 +18,22 @@ namespace FitnessAPI.Controllers
             return await workoutPlanExercisesService.GetWorkoutPlanExercises();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{planId}/{exerciseId}")]
         public async Task<WorkoutPlanExerciseDTO> GetById(int planId, int exerciseId)
         {
             return await workoutPlanExercisesService.GetWorkoutPlanExercise(planId, exerciseId);
+        }
+
+        [HttpGet("plan/{planId}")]
+        public async Task<List<ExerciseDTO>> GetExercisesByPlanId(int planId)
+        {
+            return await workoutPlanExercisesService.GetWorkoutPlanExercise(planId);
+        }
+
+        [HttpGet("exercise/{exerciseId}")]
+        public async Task<List<WorkoutPlanDTO>> GetWorkoutPlansByExerciseId(int exerciseId)
+        {
+            return await workoutPlanExercisesService.GetExerciseWorkoutPlan(exerciseId);
         }
 
         [HttpPost]

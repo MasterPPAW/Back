@@ -5,6 +5,7 @@ using LibrarieModele;
 using NivelAccesDate.Accessors.Abstraction;
 
 using NivelService.Abstraction;
+using NivelAccesDate.Accessors;
 
 namespace NivelService
 {
@@ -12,11 +13,16 @@ namespace NivelService
     {
         private readonly IMapper _mapper;
         private readonly IWorkoutPlanExercisesAccessor _workoutPlanExercisesAccessor;
+        private readonly IExercisesService _exercisesService;
+        private readonly IWorkoutPlansService _workoutPlansService;
 
-        public WorkoutPlanExercisesService(IMapper mapper, IWorkoutPlanExercisesAccessor workoutPlanExercisesAccessor)
+        public WorkoutPlanExercisesService(IMapper mapper, IWorkoutPlanExercisesAccessor workoutPlanExercisesAccessor, 
+            IExercisesService exercisesService, IWorkoutPlansService workoutPlansService)
         {
             _mapper = mapper;
             _workoutPlanExercisesAccessor = workoutPlanExercisesAccessor;
+            _exercisesService = exercisesService;
+            _workoutPlansService = workoutPlansService;
         }
 
         public async Task<List<WorkoutPlanExerciseDTO>> GetWorkoutPlanExercises()
@@ -29,6 +35,46 @@ namespace NivelService
         public async Task<WorkoutPlanExerciseDTO> GetWorkoutPlanExercise(int planId, int exerciseId)
         {
             return _mapper.Map<WorkoutPlanExerciseDTO>(await _workoutPlanExercisesAccessor.GetWorkoutPlanExercise(planId, exerciseId));
+        }
+
+        public async Task<List<ExerciseDTO>> GetWorkoutPlanExercise(int planId)
+        {
+            var plansOriginal = await _workoutPlanExercisesAccessor.GetWorkoutPlanExercise(planId);
+            var plans = plansOriginal.Select(ent => _mapper.Map<WorkoutPlanExerciseDTO>(ent)).ToList();
+
+
+            var exercisesIds = plans.Select(plan => plan.ExerciseId).ToList();
+            
+            var exercises = new List<ExerciseDTO>();
+            foreach (var exerciseId in exercisesIds)
+            {
+                var exercise = await _exercisesService.GetExercise(exerciseId);
+                if (exercise != null)
+                {
+                    exercises.Add(exercise);
+                }
+            }
+            return exercises;
+        }
+
+        public async Task<List<WorkoutPlanDTO>> GetExerciseWorkoutPlan(int exerciseId)
+        {
+            var plansOriginal = await _workoutPlanExercisesAccessor.GetExerciseWorkoutPlan(exerciseId);
+            var plans = plansOriginal.Select(ent => _mapper.Map<WorkoutPlanExerciseDTO>(ent)).ToList();
+
+
+            var workoutPlanIds = plans.Select(plan => plan.PlanId).ToList();
+
+            var workoutPlans = new List<WorkoutPlanDTO>();
+            foreach (var workoutPlanId in workoutPlanIds)
+            {
+                var workoutPlan = await _workoutPlansService.GetWorkoutPlan(workoutPlanId);
+                if (workoutPlan != null)
+                {
+                    workoutPlans.Add(workoutPlan);
+                }
+            }
+            return workoutPlans;
         }
 
         public async Task CreateWorkoutPlanExercise(WorkoutPlanExerciseDTO workoutPlanExerciseDTO)
