@@ -11,11 +11,13 @@ namespace NivelService
     {
         private readonly IMapper _mapper;
         private readonly IWorkoutPlansAccessor _workoutPlansAccessor;
+        private readonly IWorkoutPlanExercisesAccessor _workoutPlanExercisesAccessor;
 
-        public WorkoutPlansService(IMapper mapper, IWorkoutPlansAccessor workoutPlansAccessor)
+        public WorkoutPlansService(IMapper mapper, IWorkoutPlansAccessor workoutPlansAccessor, IWorkoutPlanExercisesAccessor workoutPlanExercisesAccessor)
         {
             _mapper = mapper;
             _workoutPlansAccessor = workoutPlansAccessor;
+            _workoutPlanExercisesAccessor = workoutPlanExercisesAccessor;
         }
 
         public async Task<List<WorkoutPlanDTO>> GetWorkoutPlans()
@@ -54,6 +56,13 @@ namespace NivelService
 
         public async Task DeleteWorkoutPlan(int id)
         {
+            var workoutPlanExercisesToDelete = await _workoutPlanExercisesAccessor.GetByPlanId(id);
+
+            foreach (var objToDel in workoutPlanExercisesToDelete)
+            {
+                await _workoutPlanExercisesAccessor.DeleteWorkoutPlanExercise(objToDel.PlanId, objToDel.ExerciseId);
+            }
+
             await _workoutPlansAccessor.DeleteWorkoutPlan(id);
         }
 

@@ -339,6 +339,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FitnessAPI.Controllers.SubscriptionsController",
+    "Method": "GetByUserId",
+    "RelativePath": "Subscriptions/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "LibrarieModele.DTOs.SubscriptionDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "FitnessAPI.Controllers.UsersController",
     "Method": "Get",
     "RelativePath": "Users",

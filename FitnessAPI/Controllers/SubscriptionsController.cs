@@ -24,13 +24,22 @@ namespace FitnessAPI.Controllers
             return await subscriptionsService.GetSubscription(id);
         }
 
+        [HttpGet("user/{userId}")]
+        public async Task<SubscriptionDTO> GetByUserId(int userId)
+        {
+            return await subscriptionsService.GetByUserId(userId);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] SubscriptionDTO subscriptionDTO)
         {
-            await subscriptionsService.CreateSubscription(subscriptionDTO);
+            var createdSubscription = await subscriptionsService.CreateSubscription(subscriptionDTO);
 
-            string postMessage = PostBaseSuccessMessage + " " + subscriptionDTO.SubscriptionId;
-            return CreatedAtAction(nameof(Get), new { id = subscriptionDTO.SubscriptionId }, postMessage);
+            return CreatedAtAction(
+                nameof(Get), 
+                new { id = subscriptionDTO.SubscriptionId },
+                createdSubscription
+            );
         }
 
         [HttpPut("{id}")]

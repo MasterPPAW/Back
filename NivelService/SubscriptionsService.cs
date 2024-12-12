@@ -30,11 +30,16 @@ namespace NivelService
             return _mapper.Map<SubscriptionDTO>(await _subscriptionsAccessor.GetSubscription(id));
         }
 
-        public async Task CreateSubscription(SubscriptionDTO subscriptionDTO)
+        public async Task<SubscriptionDTO> GetByUserId(int id)
+        {
+            return _mapper.Map<SubscriptionDTO>(await _subscriptionsAccessor.GetByUserId(id));
+        }
+
+        public async Task<SubscriptionDTO> CreateSubscription(SubscriptionDTO subscriptionDTO)
         {
             var toEntity = _mapper.Map<Subscription>(subscriptionDTO);
 
-            await _subscriptionsAccessor.CreateSubscription(toEntity);
+            return _mapper.Map<SubscriptionDTO>(await _subscriptionsAccessor.CreateSubscription(toEntity));
         }
 
         public async Task<SubscriptionDTO> UpdateSubscription(SubscriptionDTO subscriptionDTO, int id)

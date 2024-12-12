@@ -27,12 +27,12 @@ namespace NivelAccesDate.Accessors
 
         public async Task<User> GetUserByEmail(string email)
         {
-            return await _context.Users.FirstOrDefaultAsync(m => m.Email == email);
+            return await _context.Users.FirstOrDefaultAsync(m => m.Email == email && m.IsDeleted == false);
         }
 
         public async Task<User> GetUser(int id)
         {
-            return await _context.Users.FirstOrDefaultAsync(m => m.UserId == id);
+            return await _context.Users.FirstOrDefaultAsync(m => m.UserId == id && m.IsDeleted == false);
         }
 
         public async Task CreateUser(User user)
@@ -49,10 +49,11 @@ namespace NivelAccesDate.Accessors
 
         public async Task DeleteUser(int id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(m => m.UserId == id);
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.UserId == id && m.IsDeleted == false);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                //_context.Users.Remove(user);
+                user.IsDeleted = true;
             }
 
             await _context.SaveChangesAsync();

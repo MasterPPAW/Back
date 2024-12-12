@@ -18,6 +18,5 @@ namespace LibrarieModele.DTOs
         public string Category { get; set; }
         public string? VideoUrl { get; set; }
         public int Duration { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

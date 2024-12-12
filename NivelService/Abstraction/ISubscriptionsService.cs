@@ -12,7 +12,8 @@ namespace NivelService.Abstraction
     {
         Task<List<SubscriptionDTO>> GetSubscriptions();
         Task<SubscriptionDTO> GetSubscription(int id);
-        Task CreateSubscription(SubscriptionDTO subscriptionDTO);
+        Task<SubscriptionDTO> GetByUserId(int id);
+        Task<SubscriptionDTO> CreateSubscription(SubscriptionDTO subscriptionDTO);
         Task<SubscriptionDTO> UpdateSubscription(SubscriptionDTO subscriptionDTO, int id);
         Task DeleteSubscription(int id);
         Task<bool> SubscriptionExists(int id);

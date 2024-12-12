@@ -20,12 +20,12 @@ namespace NivelAccesDate.Accessors
 
         public async Task<List<Exercise>> GetExercises()
         {
-            return await _context.Exercises.Where(m => m.IsDeleted == false).ToListAsync();
+            return await _context.Exercises.ToListAsync();
         }
 
         public async Task<Exercise> GetExercise(int id)
         {
-            return await _context.Exercises.FirstOrDefaultAsync(m => m.ExerciseId == id && m.IsDeleted == false);
+            return await _context.Exercises.FirstOrDefaultAsync(m => m.ExerciseId == id);
         }
 
         public async Task CreateExercise(Exercise exercise)
@@ -42,11 +42,10 @@ namespace NivelAccesDate.Accessors
 
         public async Task DeleteExercise(int id)
         {
-            var exercise = await _context.Exercises.FirstOrDefaultAsync(m => m.ExerciseId == id && m.IsDeleted == false);
+            var exercise = await _context.Exercises.FirstOrDefaultAsync(m => m.ExerciseId == id);
             if (exercise != null)
             {
-                //_context.Exercises.Remove(exercise);
-                exercise.IsDeleted = true;  
+                _context.Exercises.Remove(exercise);  
             }
 
             await _context.SaveChangesAsync();

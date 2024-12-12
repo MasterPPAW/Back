@@ -24,12 +24,12 @@ namespace NivelAccesDate.Accessors
             return await _context.WorkoutPlanExercises.FirstOrDefaultAsync(m => m.PlanId == planId && m.ExerciseId == exerciseId);
         }
 
-        public async Task<List<WorkoutPlanExercise>> GetWorkoutPlanExercise(int planId)
+        public async Task<List<WorkoutPlanExercise>> GetByPlanId(int planId)
         {
             return await _context.WorkoutPlanExercises.Where(m => m.PlanId == planId).ToListAsync();
         }
 
-        public async Task<List<WorkoutPlanExercise>> GetExerciseWorkoutPlan(int exerciseId)
+        public async Task<List<WorkoutPlanExercise>> GetByExerciseId(int exerciseId)
         {
             return await _context.WorkoutPlanExercises.Where(m => m.ExerciseId == exerciseId).ToListAsync();
         }

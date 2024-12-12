@@ -37,9 +37,9 @@ namespace NivelService
             return _mapper.Map<WorkoutPlanExerciseDTO>(await _workoutPlanExercisesAccessor.GetWorkoutPlanExercise(planId, exerciseId));
         }
 
-        public async Task<List<ExerciseDTO>> GetWorkoutPlanExercise(int planId)
+        public async Task<List<ExerciseDTO>> GetByPlanId(int planId)
         {
-            var plansOriginal = await _workoutPlanExercisesAccessor.GetWorkoutPlanExercise(planId);
+            var plansOriginal = await _workoutPlanExercisesAccessor.GetByPlanId(planId);
             var plans = plansOriginal.Select(ent => _mapper.Map<WorkoutPlanExerciseDTO>(ent)).ToList();
 
 
@@ -57,9 +57,9 @@ namespace NivelService
             return exercises;
         }
 
-        public async Task<List<WorkoutPlanDTO>> GetExerciseWorkoutPlan(int exerciseId)
+        public async Task<List<WorkoutPlanDTO>> GetByExerciseId(int exerciseId)
         {
-            var plansOriginal = await _workoutPlanExercisesAccessor.GetExerciseWorkoutPlan(exerciseId);
+            var plansOriginal = await _workoutPlanExercisesAccessor.GetByExerciseId(exerciseId);
             var plans = plansOriginal.Select(ent => _mapper.Map<WorkoutPlanExerciseDTO>(ent)).ToList();
 
 

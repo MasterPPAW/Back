@@ -22,7 +22,6 @@ namespace Repository_CodeFirst
         public DbSet<WorkoutPlan> WorkoutPlans { get; set; }
         public DbSet<WorkoutPlanExercise> WorkoutPlanExercises { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<NewModel> NewModels { get; set; }
 
         #region OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)

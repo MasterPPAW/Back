@@ -11,6 +11,5 @@ namespace LibrarieModele.DTOs
 
         [EnumDataType(typeof(FitnessLevel), ErrorMessage = "Invalid Fitness Level")]
         public string FitnessLevel { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

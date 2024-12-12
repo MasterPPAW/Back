@@ -28,9 +28,6 @@ namespace LibrarieModele
         [MaxLength(15)]
         public string FitnessLevel { get; set; }
 
-        [Required]
-        public bool IsDeleted { get; set; } = false;
-
         public virtual ICollection<WorkoutPlanExercise> WorkoutPlanExercises { get; set; } = new List<WorkoutPlanExercise>();
     }
 }

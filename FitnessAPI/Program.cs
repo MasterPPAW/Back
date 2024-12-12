@@ -21,6 +21,7 @@ builder.Services.AddScoped<IUsersService, UsersService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISubscriptionsService, SubscriptionsService>();
 builder.Services.AddScoped<IWorkoutPlansService, WorkoutPlansService>();
+builder.Services.AddScoped<IPaymentsService, PaymentsService>();
 builder.Services.AddScoped<IExercisesService, ExercisesService>();
 builder.Services.AddScoped<IWorkoutPlanExercisesService, WorkoutPlanExercisesService>();
                  
