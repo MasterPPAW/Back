@@ -30,11 +30,11 @@ namespace NivelService
             return _mapper.Map<PaymentDTO>(await _paymentsAccessor.GetPayment(id));
         }
 
-        public async Task CreatePayment(PaymentDTO paymentDTO)
+        public async Task<PaymentDTO> CreatePayment(PaymentDTO paymentDTO)
         {
             var toEntity = _mapper.Map<Payment>(paymentDTO);
 
-            await _paymentsAccessor.CreatePayment(toEntity);
+            return _mapper.Map<PaymentDTO>(await _paymentsAccessor.CreatePayment(toEntity));
         }
 
         public async Task<PaymentDTO> UpdatePayment(PaymentDTO paymentDTO, int id)

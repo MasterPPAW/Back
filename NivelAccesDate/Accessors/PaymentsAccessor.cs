@@ -27,10 +27,12 @@ namespace NivelAccesDate.Accessors
             return await _context.Payments.FirstOrDefaultAsync(m => m.PaymentId == id);
         }
 
-        public async Task CreatePayment(Payment payment)
+        public async Task<Payment> CreatePayment(Payment payment)
         {
             await _context.Payments.AddAsync(payment);
             await _context.SaveChangesAsync();
+
+            return payment;
         }
 
         public async Task UpdatePayment(Payment payment)

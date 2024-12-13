@@ -12,7 +12,7 @@ namespace NivelService.Abstraction
     {
         Task<List<PaymentDTO>> GetPayments();
         Task<PaymentDTO> GetPayment(int id);
-        Task CreatePayment(PaymentDTO paymentDTO);
+        Task<PaymentDTO> CreatePayment(PaymentDTO paymentDTO);
         Task<PaymentDTO> UpdatePayment(PaymentDTO paymentDTO, int id);
         Task DeletePayment(int id);
         Task<bool> PaymentExists(int id);

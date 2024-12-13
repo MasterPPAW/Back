@@ -12,7 +12,7 @@ namespace NivelAccesDate.Accessors.Abstraction
     {
         Task<List<Payment>> GetPayments();
         Task<Payment> GetPayment(int id);
-        Task CreatePayment(Payment payment);
+        Task<Payment> CreatePayment(Payment payment);
         Task UpdatePayment(Payment payment);
         Task DeletePayment(int id);
         Task<bool> PaymentExists(int id);

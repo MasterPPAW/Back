@@ -27,10 +27,13 @@ namespace FitnessAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PaymentDTO paymentDTO)
         {
-            await paymentsService.CreatePayment(paymentDTO);
+            var createdPayment = await paymentsService.CreatePayment(paymentDTO);
 
-            string postMessage = PostBaseSuccessMessage + " " + paymentDTO.PaymentMethod;
-            return CreatedAtAction(nameof(Get), new { id = paymentDTO.PaymentId }, postMessage);
+            return CreatedAtAction(
+                nameof(Get),
+                new { id = paymentDTO.PaymentId }, 
+                createdPayment
+            );
         }
 
         [HttpPut("{id}")]
