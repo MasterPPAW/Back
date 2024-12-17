@@ -6,6 +6,7 @@ namespace NivelAccesDate.Accessors.Abstraction
     public interface IUsersAccessor
     {
         Task<List<User>> GetUsers();
+        Task<List<User>> GetUsersDeleted();
         Task<User> GetUser(int id);
         Task<User> GetUserByEmail(string email);
         Task CreateUser(User user);

@@ -27,10 +27,13 @@ namespace FitnessAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] WorkoutPlanDTO workoutPlanDTO)
         {
-            await workoutPlanService.CreateWorkoutPlan(workoutPlanDTO);
+            var createdWP = await workoutPlanService.CreateWorkoutPlan(workoutPlanDTO);
 
-            string postMessage = PostBaseSuccessMessage + " " + workoutPlanDTO.Name;
-            return CreatedAtAction(nameof(Get), new { id = workoutPlanDTO.PlanId }, postMessage);
+            return CreatedAtAction(
+                nameof(Get), 
+                new { id = workoutPlanDTO.PlanId }, 
+                createdWP
+            );
         }
 
         [HttpPut("{id}")]

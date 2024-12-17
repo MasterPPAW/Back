@@ -9,7 +9,7 @@ namespace NivelService.Abstraction
         Task<WorkoutPlanExerciseDTO> GetWorkoutPlanExercise(int planId, int exerciseId);
         Task<List<ExerciseDTO>> GetByPlanId(int planId);
         Task<List<WorkoutPlanDTO>> GetByExerciseId(int exerciseId);
-        Task CreateWorkoutPlanExercise(WorkoutPlanExerciseDTO workoutPlanExerciseDTO);
+        Task<List<WorkoutPlanExerciseDTO>> CreateWorkoutPlanExercise(List<WorkoutPlanExerciseDTO> workoutPlanExerciseDTO);
         Task<WorkoutPlanExerciseDTO> UpdateWorkoutPlanExercise(WorkoutPlanExerciseDTO workoutPlanExerciseDTO, int planId, int exerciseId);
         Task DeleteWorkoutPlanExercise(int planId, int exerciseId);
         Task<bool> WorkoutPlanExerciseExists(int planId, int exerciseId);

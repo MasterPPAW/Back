@@ -34,10 +34,19 @@ namespace NivelAccesDate.Accessors
             return await _context.WorkoutPlanExercises.Where(m => m.ExerciseId == exerciseId).ToListAsync();
         }
 
-        public async Task CreateWorkoutPlanExercise(WorkoutPlanExercise workoutPlanExercise)
+        public async Task<List<WorkoutPlanExercise>> CreateWorkoutPlanExercise(List<WorkoutPlanExercise> workoutPlanExercise)
         {
-            await _context.WorkoutPlanExercises.AddAsync(workoutPlanExercise);
-            await _context.SaveChangesAsync();
+            var wpe = new List<WorkoutPlanExercise>();
+
+            foreach (var workout in workoutPlanExercise)
+            {
+                await _context.WorkoutPlanExercises.AddAsync(workout);
+                await _context.SaveChangesAsync();
+
+                wpe.Add(workout);
+            }
+
+            return wpe;
         }
 
         public async Task UpdateWorkoutPlanExercise(WorkoutPlanExercise workoutPlanExercise)

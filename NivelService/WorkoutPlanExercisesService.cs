@@ -77,11 +77,28 @@ namespace NivelService
             return workoutPlans;
         }
 
-        public async Task CreateWorkoutPlanExercise(WorkoutPlanExerciseDTO workoutPlanExerciseDTO)
+        public async Task<List<WorkoutPlanExerciseDTO>> CreateWorkoutPlanExercise(List<WorkoutPlanExerciseDTO> workoutPlanExerciseDTO)
         {
-            var toEntity = _mapper.Map<WorkoutPlanExercise>(workoutPlanExerciseDTO);
+            var wpe = new List<WorkoutPlanExercise>();
 
-            await _workoutPlanExercisesAccessor.CreateWorkoutPlanExercise(toEntity);
+            foreach (var workout in workoutPlanExerciseDTO)
+            {
+                var toEntity = _mapper.Map<WorkoutPlanExercise>(workout);
+
+                wpe.Add(toEntity);
+            }
+
+            var wpeReturned = await _workoutPlanExercisesAccessor.CreateWorkoutPlanExercise(wpe);
+            var wpeDTO = new List<WorkoutPlanExerciseDTO>();
+
+            foreach (var wpedto in wpeReturned)
+            {
+                var toEntity = _mapper.Map<WorkoutPlanExerciseDTO>(wpedto);
+
+                wpeDTO.Add(toEntity);
+            }
+
+            return wpeDTO;
         }
 
         public async Task<WorkoutPlanExerciseDTO> UpdateWorkoutPlanExercise(WorkoutPlanExerciseDTO workoutPlanExerciseDTO, int planId, int exerciseId)

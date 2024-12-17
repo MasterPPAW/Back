@@ -25,6 +25,11 @@ namespace NivelAccesDate.Accessors
             return await _context.Users.Where(m => m.IsDeleted == false).ToListAsync();
         }
 
+        public async Task<List<User>> GetUsersDeleted()
+        {
+            return await _context.Users.Where(m => m.IsDeleted == true).ToListAsync();
+        }
+
         public async Task<User> GetUserByEmail(string email)
         {
             return await _context.Users.FirstOrDefaultAsync(m => m.Email == email && m.IsDeleted == false);

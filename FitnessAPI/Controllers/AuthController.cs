@@ -47,5 +47,12 @@ namespace FitnessAPI.Controllers
         {
             return Ok();
         }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await authService.DeleteUser(id);
+            return NoContent();
+        }
     }
 }

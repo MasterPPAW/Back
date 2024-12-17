@@ -33,6 +33,7 @@ builder.Services.AddScoped<IExercisesAccessor, ExercisesAccessor>();
 builder.Services.AddScoped<IWorkoutPlanExercisesAccessor, WorkoutPlanExercisesAccessor>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+builder.Services.AddMemoryCache();
 
 builder.Services.AddCors(options =>
 {

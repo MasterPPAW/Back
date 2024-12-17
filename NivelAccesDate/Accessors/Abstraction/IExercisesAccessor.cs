@@ -7,7 +7,7 @@ namespace NivelAccesDate.Accessors.Abstraction
     {
         Task<List<Exercise>> GetExercises();
         Task<Exercise> GetExercise(int id);
-        Task CreateExercise(Exercise exercise);
+        Task<Exercise> CreateExercise(Exercise exercise);
         Task UpdateExercise(Exercise exercise);
         Task DeleteExercise(int id);
         Task<bool> ExerciseExists(int id);

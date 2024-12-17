@@ -9,7 +9,7 @@ namespace NivelAccesDate.Accessors.Abstraction
         Task<WorkoutPlanExercise> GetWorkoutPlanExercise(int planId, int exerciseId);
         Task<List<WorkoutPlanExercise>> GetByPlanId(int planId);
         Task<List<WorkoutPlanExercise>> GetByExerciseId(int exerciseId);
-        Task CreateWorkoutPlanExercise(WorkoutPlanExercise workoutPlanExercise);
+        Task<List<WorkoutPlanExercise>> CreateWorkoutPlanExercise(List<WorkoutPlanExercise> workoutPlanExercise);
         Task UpdateWorkoutPlanExercise(WorkoutPlanExercise workoutPlanExercise);
         Task DeleteWorkoutPlanExercise(int planId, int exerciseId);
         Task<bool> WorkoutPlanExerciseExists(int planId, int exerciseId);

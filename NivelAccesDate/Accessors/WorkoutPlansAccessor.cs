@@ -27,10 +27,12 @@ namespace NivelAccesDate.Accessors
             return await _context.WorkoutPlans.FirstOrDefaultAsync(m => m.PlanId == id);
         }
 
-        public async Task CreateWorkoutPlan(WorkoutPlan workoutPlan)
+        public async Task<WorkoutPlan> CreateWorkoutPlan(WorkoutPlan workoutPlan)
         {
             await _context.WorkoutPlans.AddAsync(workoutPlan);
             await _context.SaveChangesAsync();
+
+            return workoutPlan;
         }
 
         public async Task UpdateWorkoutPlan(WorkoutPlan workoutPlan)

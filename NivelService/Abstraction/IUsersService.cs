@@ -14,6 +14,7 @@ namespace NivelService.Abstraction
     public interface IUsersService
     {
         Task<List<UserDTO>> GetUsers();
+        Task<List<UserDTO>> GetUsersDeleted();
         Task<UserDTO> GetUser(int id);
         Task CreateUser(UserDTO userDTO);
         Task<UserDTO> UpdateUser(UserDTO userDTO, int id);

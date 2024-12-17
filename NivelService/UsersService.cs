@@ -27,6 +27,13 @@ namespace NivelService
             return users.Select(ent => _mapper.Map<UserDTO>(ent)).ToList();
         }
 
+        public async Task<List<UserDTO>> GetUsersDeleted()
+        {
+            var users = await _usersAccessor.GetUsersDeleted();
+
+            return users.Select(ent => _mapper.Map<UserDTO>(ent)).ToList();
+        }
+
         public async Task<UserDTO> GetUser(int id)
         {
             return _mapper.Map<UserDTO>(await _usersAccessor.GetUser(id));

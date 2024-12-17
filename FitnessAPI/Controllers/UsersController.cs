@@ -20,6 +20,12 @@ namespace FitnessAPI.Controllers
             return await usersService.GetUsers();
         }
 
+        [HttpGet("deleted")]
+        public async Task<List<UserDTO>> GetDeleted()
+        {
+            return await usersService.GetUsersDeleted();
+        }
+
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
         public async Task<UserDTO> GetById(int id)

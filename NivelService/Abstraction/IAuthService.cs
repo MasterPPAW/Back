@@ -13,6 +13,7 @@ namespace NivelService.Abstraction
         Task<UserDTO> GetUserByEmail(string email);
         Task<AuthResponse> Register(UserDTO userDTO);
         Task<AuthResponse> Login(UserDTO userDTO);
+        Task DeleteUser(int id);
         bool VerifyPassword(string hashedPassword, string providedPassword);
     }
 }

@@ -28,10 +28,12 @@ namespace NivelAccesDate.Accessors
             return await _context.Exercises.FirstOrDefaultAsync(m => m.ExerciseId == id);
         }
 
-        public async Task CreateExercise(Exercise exercise)
+        public async Task<Exercise> CreateExercise(Exercise exercise)
         {
             await _context.Exercises.AddAsync(exercise);
             await _context.SaveChangesAsync();
+
+            return exercise;
         }
 
         public async Task UpdateExercise(Exercise exercise)

@@ -31,11 +31,11 @@ namespace NivelService
             return _mapper.Map<ExerciseDTO>(await _exercisesAccessor.GetExercise(id));
         }
 
-        public async Task CreateExercise(ExerciseDTO exerciseDTO)
+        public async Task<ExerciseDTO> CreateExercise(ExerciseDTO exerciseDTO)
         {
             var toEntity = _mapper.Map<Exercise>(exerciseDTO);
 
-            await _exercisesAccessor.CreateExercise(toEntity);
+            return _mapper.Map<ExerciseDTO>(await _exercisesAccessor.CreateExercise(toEntity));
         }
 
         public async Task<ExerciseDTO> UpdateExercise(ExerciseDTO exerciseDTO, int id)
