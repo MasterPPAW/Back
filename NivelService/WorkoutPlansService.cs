@@ -5,6 +5,7 @@ using NivelAccesDate.Accessors.Abstraction;
 
 using NivelService.Abstraction;
 using Microsoft.Extensions.Caching.Memory;
+using NLog;
 
 namespace NivelService
 {
@@ -26,6 +27,25 @@ namespace NivelService
         public async Task<List<WorkoutPlanDTO>> GetWorkoutPlans()
         {
             const string cacheKey = "WorkoutPlansCacheKey";
+
+            /*var workoutPlans = await _workoutPlansAccessor.GetWorkoutPlans();
+
+            return workoutPlans.Select(ent => _mapper.Map<WorkoutPlanDTO>(ent)).ToList();*/
+
+            if (!_cache.TryGetValue(cacheKey, out List<WorkoutPlanDTO> cachedWorkoutPlans))
+            {
+                var workoutPlans = await _workoutPlansAccessor.GetWorkoutPlans();
+                cachedWorkoutPlans = workoutPlans.Select(ent => _mapper.Map<WorkoutPlanDTO>(ent)).ToList();
+
+                _cache.Set(cacheKey, cachedWorkoutPlans, TimeSpan.FromHours(1));
+            }
+
+            return cachedWorkoutPlans;
+        }
+
+        public async Task<List<WorkoutPlanDTO>> GetWorkoutPlansByExerciseId(int exerciseId)
+        {
+            const string cacheKey = "WorkoutPlansExerciseCacheKey";
 
             /*var workoutPlans = await _workoutPlansAccessor.GetWorkoutPlans();
 

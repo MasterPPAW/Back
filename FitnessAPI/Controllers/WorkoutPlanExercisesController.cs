@@ -24,12 +24,6 @@ namespace FitnessAPI.Controllers
             return await workoutPlanExercisesService.GetWorkoutPlanExercise(planId, exerciseId);
         }
 
-        [HttpGet("plan/{planId}")]
-        public async Task<List<ExerciseDTO>> GetExercisesByPlanId(int planId)
-        {
-            return await workoutPlanExercisesService.GetByPlanId(planId);
-        }
-
         [HttpGet("exercise/{exerciseId}")]
         public async Task<List<WorkoutPlanDTO>> GetWorkoutPlansByExerciseId(int exerciseId)
         {

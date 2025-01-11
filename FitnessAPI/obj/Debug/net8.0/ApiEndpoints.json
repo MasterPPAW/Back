@@ -157,6 +157,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FitnessAPI.Controllers.ExercisesController",
+    "Method": "GetExercisesByPlanId",
+    "RelativePath": "Exercises/plan/{planId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "planId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.ExerciseDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "FitnessAPI.Controllers.PaymentsController",
     "Method": "Get",
     "RelativePath": "Payments",
@@ -640,32 +666,6 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.WorkoutPlanDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FitnessAPI.Controllers.WorkoutPlanExercisesController",
-    "Method": "GetExercisesByPlanId",
-    "RelativePath": "WorkoutPlanExercises/plan/{planId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "planId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[LibrarieModele.DTOs.ExerciseDTO, LibrarieModele, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

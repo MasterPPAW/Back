@@ -23,6 +23,16 @@ namespace NivelAccesDate.Accessors
             return await _context.Exercises.ToListAsync();
         }
 
+        public async Task<List<Exercise>> GetExercisesByPlanId(int planId)
+        {
+            return await (from wpe in _context.WorkoutPlanExercises
+                          join ex in _context.Exercises
+                          on wpe.ExerciseId equals ex.ExerciseId
+                          where wpe.PlanId == planId
+                          select ex).ToListAsync();
+        }
+
+
         public async Task<Exercise> GetExercise(int id)
         {
             return await _context.Exercises.FirstOrDefaultAsync(m => m.ExerciseId == id);

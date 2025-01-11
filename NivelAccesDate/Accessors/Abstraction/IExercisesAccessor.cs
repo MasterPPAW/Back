@@ -6,6 +6,7 @@ namespace NivelAccesDate.Accessors.Abstraction
     public interface IExercisesAccessor
     {
         Task<List<Exercise>> GetExercises();
+        Task<List<Exercise>> GetExercisesByPlanId(int planId);
         Task<Exercise> GetExercise(int id);
         Task<Exercise> CreateExercise(Exercise exercise);
         Task UpdateExercise(Exercise exercise);
