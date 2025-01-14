@@ -5,7 +5,6 @@ using NivelAccesDate.Accessors.Abstraction;
 
 using NivelService.Abstraction;
 using Microsoft.Extensions.Caching.Memory;
-using NLog;
 
 namespace NivelService
 {

@@ -14,8 +14,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<FitnessDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("fitnessDB"))
            .UseLazyLoadingProxies());
-           /*.EnableSensitiveDataLogging()
-           .LogTo(Console.WriteLine, LogLevel.Warning));*/
+/*.EnableSensitiveDataLogging()
+.LogTo(Console.WriteLine, LogLevel.Warning));*/
+
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddFile("Logs/app-log-{Date}.txt");
+});
 
 builder.Services.AddScoped<IUsersService, UsersService>();
 builder.Services.AddScoped<IAuthService, AuthService>();

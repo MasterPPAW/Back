@@ -4,6 +4,8 @@ using LibrarieModele.DTOs;
 using LibrarieModele;
 using NivelAccesDate.Accessors.Abstraction;
 using NivelService.Abstraction;
+using Microsoft.Extensions.Logging;
+using NLog;
 
 namespace NivelService
 {
@@ -11,17 +13,21 @@ namespace NivelService
     {
         private readonly IMapper _mapper;
         private readonly ISubscriptionsAccessor _subscriptionsAccessor;
+        private readonly ILogger<SubscriptionsService> _logger;
 
-        public SubscriptionsService(IMapper mapper, ISubscriptionsAccessor subscriptionsAccessor)
+        public SubscriptionsService(IMapper mapper, ISubscriptionsAccessor subscriptionsAccessor, ILogger<SubscriptionsService> logger)
         {
             _mapper = mapper;
             _subscriptionsAccessor = subscriptionsAccessor;
+            _logger = logger;
         }
 
         public async Task<List<SubscriptionDTO>> GetSubscriptions()
         {
+            _logger.LogInformation("Fetching all subscriptions.");
             var subscriptions = await _subscriptionsAccessor.GetSubscriptions();
 
+            _logger.LogInformation("Fetched {Count} subscriptions.", subscriptions.Count);
             return subscriptions.Select(ent => _mapper.Map<SubscriptionDTO>(ent)).ToList();
         }
 
@@ -37,9 +43,15 @@ namespace NivelService
 
         public async Task<SubscriptionDTO> CreateSubscription(SubscriptionDTO subscriptionDTO)
         {
+            _logger.LogInformation("Creating a new subscription for UserId {UserId}.", subscriptionDTO.UserId);
             var toEntity = _mapper.Map<Subscription>(subscriptionDTO);
 
-            return _mapper.Map<SubscriptionDTO>(await _subscriptionsAccessor.CreateSubscription(toEntity));
+            var createdSubscription = await _subscriptionsAccessor.CreateSubscription(toEntity);
+            var oldSubs = await _subscriptionsAccessor.GetByUserId(createdSubscription.UserId);
+            await this.DeleteSubscription(oldSubs.SubscriptionId);
+
+            _logger.LogInformation("Created subscription with Id {Id}.", createdSubscription.SubscriptionId);
+            return _mapper.Map<SubscriptionDTO>(createdSubscription);
         }
 
         public async Task<SubscriptionDTO> UpdateSubscription(SubscriptionDTO subscriptionDTO, int id)
@@ -59,7 +71,17 @@ namespace NivelService
 
         public async Task DeleteSubscription(int id)
         {
+            _logger.LogInformation("Attempting to delete subscription with Id {Id}.", id);
+
+            var subscription = await _subscriptionsAccessor.GetSubscription(id);
+            if (subscription == null)
+            {
+                _logger.LogWarning("Subscription with Id {Id} not found for deletion.", id);
+                throw new ArgumentException("Subscription not found.");
+            }
+
             await _subscriptionsAccessor.DeleteSubscription(id);
+            _logger.LogInformation("Deleted subscription with Id {Id}.", id);
         }
 
         public async Task<bool> SubscriptionExists(int id)
